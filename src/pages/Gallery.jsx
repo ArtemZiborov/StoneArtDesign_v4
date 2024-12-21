@@ -22,13 +22,11 @@ const Gallery = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [zoom, setZoom] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Detect screen size to determine mobile or desktop view
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Adjust the breakpoint as needed
+      setIsMobile(window.innerWidth <= 768); // Adjust the breakpoint as necessary
     };
 
     handleResize(); // Set the initial state
@@ -38,21 +36,13 @@ const Gallery = () => {
   }, []);
 
   const nextImage = () => {
-    setZoom(false); // Reset zoom when navigating to the next image
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   const prevImage = () => {
-    setZoom(false); // Reset zoom when navigating to the previous image
     setCurrentIndex(
       (prevIndex) => (prevIndex - 1 + images.length) % images.length
     );
-  };
-
-  const toggleZoom = () => {
-    if (isMobile) {
-      setZoom((prevZoom) => !prevZoom);
-    }
   };
 
   return (
@@ -91,30 +81,21 @@ const Gallery = () => {
               height: "calc(100vh - 160px)",
             }}
           >
-            {images.map((image, index) => {
-              const isCurrent = currentIndex === index;
-              const scaleClass = isCurrent ? (zoom && isMobile ? "scale-130" : "scale-100") : "opacity-50 blur-md";
-              return (
-                <img
-                  key={image}
-                  src={image}
-                  alt={`Slide ${index}`}
-                  className={`w-full object-cover flex-shrink-0 cursor-pointer ${scaleClass} transition-all duration-300`}
-                  style={{
-                    height: "100%",
-                  }}
-                  onClick={() => {
-                    if (isCurrent) toggleZoom();
-                  }}
-                  onKeyDown={(e) => {
-                    if (isCurrent && (e.key === 'Enter' || e.key === ' ')) toggleZoom();
-                  }}
-                  tabIndex={0}
-                  role="button"
-                  aria-pressed={zoom}
-                />
-              );
-            })}
+            {images.map((image, index) => (
+              <img
+                key={image}
+                src={image}
+                alt={`Slide ${index}`}
+                className={`w-full object-cover flex-shrink-0 cursor-pointer ${
+                  currentIndex === index
+                    ? "scale-100 opacity-100"
+                    : "opacity-50 blur-md"
+                } transition-all duration-300`}
+                style={{
+                  height: "100%",
+                }}
+              />
+            ))}
           </div>
 
           {/* Controls */}

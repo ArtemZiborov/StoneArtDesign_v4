@@ -4,12 +4,10 @@ import { NavLink } from "react-router-dom";
 const logo = "/images/logo.png"; // Adjust the path as necessary
 
 function PageNav() {
-  // State to manage the visibility of the mobile menu
   const [isOpen, setIsOpen] = useState(false);
 
-  // Function to toggle the mobile menu
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => !prev);
   };
 
   return (
@@ -22,6 +20,7 @@ function PageNav() {
           </NavLink>
           <h1 className="text-2xl font-bold text-white">Stone Art Design</h1>
         </div>
+
         {/* Contact Info */}
         <div className="hidden md:flex items-center space-x-6">
           <span className="text-white flex items-center">
@@ -35,6 +34,7 @@ function PageNav() {
             info@mystonemaster.co.uk
           </a>
         </div>
+
         {/* Hamburger Menu Button */}
         <button
           className="text-white md:hidden focus:outline-none"
@@ -45,27 +45,14 @@ function PageNav() {
         </button>
       </div>
 
-      {/* Mobile Contact Info */}
-      {isOpen && (
-        <div className="block md:hidden text-center mt-4">
-          <div className="text-white mb-2">
-            <i className="fas fa-phone-alt mr-2"></i>+44 7563 366199
-          </div>
-          <a href="mailto:info@mystonemaster.co.uk" className="text-white">
-            <i className="fas fa-envelope mr-2"></i>
-            info@mystonemaster.co.uk
-          </a>
-        </div>
-      )}
-
-      {/* Navigation Links */}
+      {/* Mobile Menu */}
       <div
         className={`md:flex md:items-center md:justify-center w-full mt-4 md:mt-0 md:w-auto ${
           isOpen ? "block" : "hidden"
         }`}
       >
         <ul className="flex flex-col md:flex-row md:space-x-7 items-center text-center text-lg md:text-base">
-          <li className="mb-2 md:mb-0">
+          <li>
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -78,7 +65,7 @@ function PageNav() {
               Home
             </NavLink>
           </li>
-          <li className="mb-2 md:mb-0">
+          <li>
             <NavLink
               to="/about"
               className={({ isActive }) =>
@@ -91,7 +78,7 @@ function PageNav() {
               About Us
             </NavLink>
           </li>
-          <li className="mb-2 md:mb-0">
+          <li>
             <NavLink
               to="/materials"
               className={({ isActive }) =>
@@ -104,7 +91,7 @@ function PageNav() {
               Materials
             </NavLink>
           </li>
-          <li className="mb-2 md:mb-0">
+          <li>
             <NavLink
               to="/gallery"
               className={({ isActive }) =>
@@ -129,7 +116,7 @@ function PageNav() {
           className="text-white text-2xl md:text-xl"
           title="Follow us on Facebook"
         >
-          <i className="fa-brands fa-facebook"></i>
+          <i className="fab fa-facebook"></i>
         </a>
         <a
           href="https://www.instagram.com/stoneartspecialists/"
