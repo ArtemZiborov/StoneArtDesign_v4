@@ -104,6 +104,19 @@ function PageNav() {
               Materials
             </NavLink>
           </li>
+          <li className="mb-2 md:mb-0">
+            <NavLink
+              to="/gallery"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-white font-bold text-xl"
+                  : "text-gray-400 text-xl"
+              }
+              onClick={() => setIsOpen(false)}
+            >
+              Projects Gallery
+            </NavLink>
+          </li>
         </ul>
       </div>
 
