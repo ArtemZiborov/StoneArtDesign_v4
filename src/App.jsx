@@ -6,6 +6,7 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import Materials from "./pages/Materials";
 import Footer from "./components/Footer"; // Import the Footer component
 import AboutUs from "./pages/AboutUs"; // Import the AboutUs page
+import Contact from "./pages/Contact";
 function App() {
   return (
     <BrowserRouter>
@@ -16,6 +17,7 @@ function App() {
             <Route path="/about" element={<AboutUs />} /> {/* AboutUs Route */}
             <Route path="/materials" element={<Materials />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<PageNotFound />} />
             
           </Routes>

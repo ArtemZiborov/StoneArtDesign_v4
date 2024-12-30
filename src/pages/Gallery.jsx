@@ -3,22 +3,22 @@ import PageNav from "../components/PageNav";
 
 const Gallery = () => {
   const images = [
-    "images/Gallery/Black_Goldish_stone_kitcen_top.jpg", // Replace with your image URLs
-    "images/Gallery/Black_Goldish_stone.jpg",
-    "images/Gallery/Black_Stone_2.jpg",
-    "images/Gallery/Black_Stone_Sink.jpg",
-    "images/Gallery/Bllack_Stone_kitchen.jpg",
-    "images/Gallery/kitchen_black_1.jpg",
-    "images/Gallery/kitchen_black.jpg",
-    "images/Gallery/kitchen_gray.jpg",
-    "images/Gallery/kitchen_gray_1.jpg",
-    "images/Gallery/kitchen_white_1.jpg",
-    "images/Gallery/kitchen_white_2.jpg",
-    "images/Gallery/kitchen_white_3.jpg",
-    "images/Gallery/kitchen_white_4.jpg",
-    "images/Gallery/kitchen_white_5.jpg",
-    "images/Gallery/kitchen_white_6.jpg",
-    "images/Gallery/sanple_1.jpg",
+    "Black_Goldish_stone_kitcen_top",
+    "Black_Goldish_stone",
+    "Black_Stone_2",
+    "Black_Stone_Sink",
+    "Bllack_Stone_kitchen",
+    "kitchen_black_1",
+    "kitchen_black",
+    "kitchen_gray",
+    "kitchen_gray_1",
+    "kitchen_white_1",
+    "kitchen_white_2",
+    "kitchen_white_3",
+    "kitchen_white_4",
+    "kitchen_white_5",
+    "kitchen_white_6",
+    "sanple_1",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -26,10 +26,10 @@ const Gallery = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Adjust the breakpoint as necessary
+      setIsMobile(window.innerWidth <= 768);
     };
 
-    handleResize(); // Set the initial state
+    handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
@@ -73,7 +73,6 @@ const Gallery = () => {
         </div>
 
         <div className="relative w-full flex-1 max-w-4xl mx-auto overflow-hidden rounded-lg shadow-lg">
-          {/* Carousel */}
           <div
             className="flex transition-transform duration-500 ease-in-out h-full"
             style={{
@@ -84,8 +83,9 @@ const Gallery = () => {
             {images.map((image, index) => (
               <img
                 key={image}
-                src={image}
+                src={`/images/Gallery/${image}.jpg`} // Reference images in public/images/Gallery/
                 alt={`Slide ${index}`}
+                loading="lazy"
                 className={`w-full object-cover flex-shrink-0 cursor-pointer ${
                   currentIndex === index
                     ? "scale-100 opacity-100"
@@ -101,31 +101,19 @@ const Gallery = () => {
           {/* Controls */}
           <button
             onClick={prevImage}
-            className="hidden md:block absolute left-2 top-1/2 transform -translate-y-1/2 p-4 bg-gray-800 text-white rounded-full hover:bg-gray-700 focus:outline-none bg-opacity-50"
+            className={`absolute left-2 top-1/2 transform -translate-y-1/2 p-4 bg-gray-800 text-white rounded-full hover:bg-gray-700 focus:outline-none bg-opacity-50 ${
+              isMobile ? "block" : "hidden md:block"
+            }`}
             style={{ fontSize: "2em" }}
           >
             &#8592;
           </button>
           <button
             onClick={nextImage}
-            className="hidden md:block absolute right-2 top-1/2 transform -translate-y-1/2 p-4 bg-gray-800 text-white rounded-full hover:bg-gray-700 focus:outline-none bg-opacity-50"
+            className={`absolute right-2 top-1/2 transform -translate-y-1/2 p-4 bg-gray-800 text-white rounded-full hover:bg-gray-700 focus:outline-none bg-opacity-50 ${
+              isMobile ? "block" : "hidden md:block"
+            }`}
             style={{ fontSize: "2em" }}
-          >
-            &#8594;
-          </button>
-
-          {/* Mobile Controls */}
-          <button
-            onClick={prevImage}
-            className="block md:hidden absolute left-2 top-2 p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700 focus:outline-none bg-opacity-50"
-            style={{ fontSize: "1.5em" }}
-          >
-            &#8592;
-          </button>
-          <button
-            onClick={nextImage}
-            className="block md:hidden absolute right-2 top-2 p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700 focus:outline-none bg-opacity-50"
-            style={{ fontSize: "1.5em" }}
           >
             &#8594;
           </button>

@@ -104,6 +104,19 @@ function PageNav() {
               Projects Gallery
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-white font-bold text-xl"
+                  : "text-gray-400 text-xl"
+              }
+              onClick={() => setIsOpen(false)}
+            >
+              Price Quote
+            </NavLink>
+          </li>
         </ul>
       </div>
 

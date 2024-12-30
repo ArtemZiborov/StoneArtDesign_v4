@@ -1,109 +1,75 @@
+import React from "react";
 import PageNav from "../components/PageNav";
-import { useState } from "react";
-
 function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    telephone: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here you would typically send the form data to a server or email service
-    // For this example, we'll just log it to the console
-    console.log("Form submitted:", formData);
-    alert("Your message has been sent!");
-    setFormData({ name: "", email: "", telephone: "", message: "" });
-  };
-
   return (
-    <div className="min-h-screen bg-gray-100">
+    <>
       <PageNav />
-      <div className="container mx-auto py-8 flex items-center justify-center">
-        <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-          <h1 className="text-2xl font-bold mb-4">Contact Us</h1>
-          <p className="text-gray-700 mb-4">
-            We are happy to answer your questions and provide a price quote.
-            Please fill out the form below, and we will get back to you as soon
-            as possible.
-          </p>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-4">
-              <label className="block text-gray-700 mb-2" htmlFor="name">
-                Name
-              </label>
+
+      <div id="contact" className="max-w-[1040px] m-auto md:pl-20 p-4 py-16">
+        <h1 className="py-4 text-4xl font-bold text-center text-[#001b5e]">
+          Please contact us for a free quote.
+        </h1>
+        <form
+          action="https://getform.io/f/ayvvdowb"
+          method="POST"
+          encType="multipart/form-data"
+        >
+          <div className="grid md:grid-cols-2 gap-4 w-full py-2">
+            <div className="flex flex-col">
+              <label className="uppercase text-sm py-2">Name</label>
               <input
+                className="border-2 rounded-lg p-3 flex border-gray-300"
                 type="text"
-                id="name"
                 name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border rounded"
-                required
               />
             </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 mb-2" htmlFor="email">
-                Email
-              </label>
+            <div className="flex flex-col">
+              <label className="uppercase text-sm py-2">Phone</label>
               <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border rounded"
-                required
-              />
+                className="border-2 rounded-lg p-3 flex border-gray-300"
+                type="text"
+                name="phone"
+              ></input>
             </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 mb-2" htmlFor="telephone">
-                Telephone
-              </label>
-              <input
-                type="tel"
-                id="telephone"
-                name="telephone"
-                value={formData.telephone}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border rounded"
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 mb-2" htmlFor="message">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border rounded"
-                rows="4"
-                required
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
-            >
-              Send Message
-            </button>
-          </form>
-        </div>
+          </div>
+          <div className="flex flex-col py-2">
+            <label className="uppercase text-sm py-2">Email</label>
+            <input
+              className="border-2 rounded-lg p-3 flex border-gray-300"
+              type="email"
+              name="email"
+            ></input>
+          </div>
+          <div className="flex flex-col py-2">
+            <label className="uppercase text-sm py-2">Subject</label>
+            <input
+              className="border-2 rounded-lg p-3 flex border-gray-300"
+              type="text"
+              name="subject"
+            ></input>
+          </div>
+          <div className="flex flex-col py-2">
+            <label className="uppercase text-sm py-2">Message</label>
+            <textarea
+              className="border-2 rounded-lg p-3 border-gray-300"
+              rows="10"
+              name="message"
+            ></textarea>
+          </div>
+          <div className="flex flex-col py-2">
+            <label className="uppercase text-sm py-2">File Upload</label>
+            <input
+              className="border-2 rounded-lg p-3 flex border-gray-300"
+              type="file"
+              name="file"
+            ></input>
+          </div>
+          <button className="bg-[#001b5e] text-gray-100 rounded-lg mt-4 w-full p-4">
+            Send Message
+          </button>
+        </form>
       </div>
-    </div>
+    </>
   );
 }
 
