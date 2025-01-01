@@ -50,25 +50,30 @@ const Gallery = () => {
       <PageNav />
 
       <div className="flex-1 flex flex-col justify-between py-4">
-        <div className="text-center">
+        <div className="text-center mb-3">
           <p className="text-xl md:text-2xl font-semibold">
             Here you can observe some of our projects.
           </p>
         </div>
 
-        <div className="text-center px-4">
-          <p>
+        <div className="text-center px-4 mb-4">
+          <p className="text-sm md:text-base">
             Please use our partner tools to &nbsp;
             <a
               href="https://noblestone.uk/visualizer"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black text-lg sm:text-2xl md:text-xl underline"
+              className="bg-[#001b5e] text-gray-100 rounded-lg p-2 inline-block md:p-3 transition-transform transform hover:scale-105"
               title="Product Visualization"
+              style={{
+                display: "inline-block",
+                maxWidth: "100%",
+                overflowWrap: "break-word",
+                textAlign: "center",
+              }}
             >
               Visualise Your Dream Stone
             </a>
-            .
           </p>
         </div>
 
@@ -77,7 +82,7 @@ const Gallery = () => {
             className="flex transition-transform duration-500 ease-in-out h-full"
             style={{
               transform: `translateX(-${currentIndex * 100}%)`,
-              height: "calc(100vh - 160px)",
+              height: isMobile ? "calc(100vh - 200px)" : "calc(100vh - 160px)",
             }}
           >
             {images.map((image, index) => (

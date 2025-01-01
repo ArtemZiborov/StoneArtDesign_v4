@@ -44,7 +44,45 @@ function PageNav() {
           <i className="fas fa-bars text-2xl"></i>
         </button>
       </div>
-
+      {/* Social Media Links */}
+      <div className="flex space-x-9 mt-4 md:mt-1 mb-3 justify-center">
+        <a
+          href="https://www.facebook.com/share/9ZUDxR6r2LqBTY4p/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white text-2xl md:text-xl"
+          title="Follow us on Facebook"
+        >
+          <i className="fab fa-facebook"></i>
+        </a>
+        <a
+          href="https://www.instagram.com/stoneartspecialists/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white text-2xl md:text-xl"
+          title="Follow us on Instagram"
+        >
+          <i className="fab fa-instagram"></i>
+        </a>
+        <a
+          href="https://noblestone.uk/visualizer"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white text-2xl md:text-xl"
+          title="Product Visualization"
+        >
+          <i className="fas fa-eye"></i>
+        </a>
+        <a
+          href="https://wa.me/447563366199?text=Hello%20Stone%20Art%20Design"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white text-2xl md:text-xl"
+          title="Chat with us on WhatsApp"
+        >
+          <i className="fab fa-whatsapp"></i>
+        </a>
+      </div>
       {/* Mobile Menu */}
       <div
         className={`md:flex md:items-center md:justify-center w-full mt-4 md:mt-0 md:w-auto ${
@@ -118,46 +156,6 @@ function PageNav() {
             </NavLink>
           </li>
         </ul>
-      </div>
-
-      {/* Social Media Links */}
-      <div className="flex space-x-7 mt-4 md:mt-0 justify-center">
-        <a
-          href="https://www.facebook.com/share/9ZUDxR6r2LqBTY4p/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white text-2xl md:text-xl"
-          title="Follow us on Facebook"
-        >
-          <i className="fab fa-facebook"></i>
-        </a>
-        <a
-          href="https://www.instagram.com/stoneartspecialists/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white text-2xl md:text-xl"
-          title="Follow us on Instagram"
-        >
-          <i className="fab fa-instagram"></i>
-        </a>
-        <a
-          href="https://noblestone.uk/visualizer"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white text-2xl md:text-xl"
-          title="Product Visualization"
-        >
-          <i className="fas fa-eye"></i>
-        </a>
-        <a
-          href="https://wa.me/447563366199?text=Hello%20Stone%20Art%20Design"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white text-2xl md:text-xl"
-          title="Chat with us on WhatsApp"
-        >
-          <i className="fab fa-whatsapp"></i>
-        </a>
       </div>
     </nav>
   );
