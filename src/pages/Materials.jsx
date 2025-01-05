@@ -16,9 +16,11 @@ function Materials() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <PageNav />
-      <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-100 relative">
+      <div className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
+        <PageNav />
+      </div>
+      <div className="pt-40 container mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <div className="mt-8 p-4 bg-white rounded shadow">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">
             We are using popular and very durable materials!

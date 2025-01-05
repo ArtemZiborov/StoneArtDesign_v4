@@ -46,10 +46,12 @@ const Gallery = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col">
-      <PageNav />
+    <div className="min-h-screen bg-gray-100 relative">
+      <div className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
+        <PageNav />
+      </div>
 
-      <div className="flex-1 flex flex-col justify-between py-4">
+      <div className="pt-40 flex-1 flex flex-col justify-between py-4">
         <div className="text-center mb-3">
           <p className="text-xl md:text-2xl font-semibold">
             Here you can observe some of our projects.

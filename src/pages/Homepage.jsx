@@ -2,9 +2,12 @@ import PageNav from "../components/PageNav";
 
 function Homepage() {
   return (
-    <div className="min-h-screen bg-gray-100">
-      <PageNav />
-      <div className="container mx-auto py-8">
+    <div className="relative min-h-screen bg-gray-100">
+      {/* Fixed PageNav */}
+      <div className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
+        <PageNav />
+      </div>
+      <div className="pt-40 container mx-auto py-8">
         <div className="mt-8 p-4 bg-white rounded shadow">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
             About Stone Art Design
@@ -54,7 +57,9 @@ function Homepage() {
           </div>
         </div>
       </div>
+      
     </div>
+    
   );
 }
 

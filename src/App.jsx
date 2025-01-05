@@ -7,6 +7,7 @@ import Materials from "./pages/Materials";
 import Footer from "./components/Footer"; // Import the Footer component
 import AboutUs from "./pages/AboutUs"; // Import the AboutUs page
 import Contact from "./pages/Contact";
+import "leaflet/dist/leaflet.css";
 function App() {
   return (
     <BrowserRouter>
